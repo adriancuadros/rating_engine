@@ -27,7 +27,7 @@ module RatingEngine
       end
       
       def generate_stylesheet_and_images
-        copy_file   'stylesheets/star_rating.css', 'public/stylesheets/star_rating.rb' 
+        copy_file   'stylesheets/star_rating.css', 'public/stylesheets/star_rating.css' 
         copy_file   'images/star_sprite.gif', 'public/images/star_sprite.gif'
       end
       

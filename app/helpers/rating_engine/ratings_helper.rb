@@ -14,11 +14,14 @@ module RatingEngine
     end
   
     def rating_url(rateable)
-      if rateable.rated_by?(controller.current_user)
-        eval("#{rateable.class.to_s.downcase}_rating_path(#{rateable.id})")
-      else
-        eval("#{rateable.class.to_s.downcase}_ratings_path(#{rateable.id})")
+      unless current_user.nil?
+        if rateable.rated_by?(controller.current_user)
+          eval("#{rateable.class.to_s.downcase}_rating_path(#{rateable.id})")
+        else
+          eval("#{rateable.class.to_s.downcase}_ratings_path(#{rateable.id})")
+        end
       end
     end
+    
   end
 end
